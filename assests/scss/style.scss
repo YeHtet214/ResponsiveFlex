@@ -1,0 +1,913 @@
+/* Colors */
+$primary: #052E66;
+$secondary: #3C528F;
+$normal-blue: rgb(93, 138, 241);
+$lighter-blue: #6779BA;
+$darkder-blue: #002257;
+$light-gray: rgba(241, 248, 245, 0.746);
+/////////////////////////////
+
+/* Typography */
+$header-fs: 2rem;
+$paragraph: 16px;
+
+body {
+  font-size: $paragraph;
+  width: 100vw;
+
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition-duration: .3s;
+}
+
+/* Utility Classes */
+.section-header {
+  text-align: center;
+
+  p {
+    font-weight: 500;
+    color: $normal-blue ;
+    font-size: 1rem;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  h2 {
+    color: $primary;
+    letter-spacing: 2px;
+  }
+}
+
+section {
+  padding: 4rem 0;
+
+  @media screen and (max-width: 576px) {
+    padding: 2rem .5rem;
+  }
+}
+
+@mixin button() {
+  padding: .5rem 2rem;
+  margin: 2rem 0;
+  display: inline-block;
+
+  i {
+    font-size: .8rem;
+    margin-left: 1rem;
+  }
+
+  &:hover {
+    i {
+      transform: translateX(1rem);
+    }
+  }
+}
+
+// Go Top Arrow
+#goTop {
+  position: fixed;
+  bottom: 2rem;
+  left: 90%;
+  z-index: 11111;
+  padding: .5rem .5rem;
+  font-size: 1.5rem;
+  background: $normal-blue;
+  color: #fff;
+  border-radius: .3rem;
+  display: none;
+}
+
+// Nav Section Starts 
+nav {
+  #mainMenu {
+      ul {
+        li {
+          a {
+            font-size: 1rem;
+            font-weight: 700;
+            color: $secondary;
+            margin-right: .5rem;
+
+            &:hover {
+              color: $normal-blue;
+              transform: scale(1.1);
+            }
+          }
+          
+         .current {
+            color: $normal-blue !important;
+          }
+        }
+      }
+
+    .close-menu-btn {
+      display: none;
+      transform: rotate(45deg);
+      color: $darkder-blue;
+      position: absolute;
+      top: .3rem;
+      font-size: 1.5rem;
+      right: 2.5rem;
+    }
+  }
+
+  // Mobile View 
+  @media screen and (max-width: 992px) {
+    #mainMenu {
+      background-color: rgba($secondary, 0.8);
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1111;
+      padding: 2rem;
+
+      ul {
+        background-color: #fff;
+        min-height: 80%;
+        border-radius: 1rem;
+        padding: 1rem;
+
+        li {
+          text-align: center;
+          line-height: 1.5;
+
+          a {
+            font-size: 1.3rem;
+          }
+
+          input[type="button"] {
+            margin: 2rem 0;
+          }
+        }
+      }
+
+      .close-menu-btn {
+        display: block;
+      }
+    }
+  }
+} // Nav Section Ends
+
+#header {
+  background-color: transparent;
+  padding-top: 1rem;
+  max-width: 100vw;
+  // overflow: hidden;
+
+  .title {
+    color: $darkder-blue;
+  }
+}
+
+// Home Section Starts 
+#hero {
+  background: url(../../assests/img/hero-bg.png) center no-repeat;
+  background-size: cover;
+
+  h1 {
+    font-size: $header-fs;
+    font-weight: 700;
+    color: $darkder-blue;
+  }
+  h2 {
+    font-weight: 400;
+  }
+  button {
+    @include button();  
+  }
+} // Home Section Ends
+
+// About Section Starts
+#about {
+  .about-content {
+    background-color: $light-gray;
+    padding: .5rem;  
+    margin: 0;
+
+    p:last-child() {
+      line-height: 1.6;
+      opacity: 0.8;
+    }
+
+    button {
+      @include button();
+      margin: 1rem 0;
+    }
+  }
+} // About Section Ends
+
+// Values Section Starts 
+#values {
+  .card {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    transition: .2s ease;
+
+    .card-img {
+      padding: 2rem;
+    }
+
+    h2 {
+      color: $primary; 
+    }
+
+    p {
+      margin: 1rem;
+      opacity: 0.8;
+    }
+    
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+      transform: scale(1.02);
+
+      .card-img {
+        img {
+          transform: scale(0.9);
+        }
+      }
+    }
+  }
+} // Values Section Ends
+
+// Feature Section Starts 
+#feature {
+  .feature-content {
+    .feature-box {
+      display: flex;
+      align-items: center;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 2px 14px;
+      padding: 1rem; 
+
+      i {
+        padding: .3rem .5rem;
+        height: fit-content;
+        background-color: $light-gray;
+        margin-right: .5rem;
+        border-radius: 3px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+      h3 {
+        font-size: 1.2rem;
+        color: $primary;
+      }
+
+      &:hover {
+        i {
+          background-color: $normal-blue;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  // Feature Tabs
+  #feature-tabs {
+    h2 {
+      color: $darkder-blue;
+    }
+    ul {
+      border-bottom: 1px solid #3333;
+      margin-bottom: 2rem;
+
+      li {
+        a {
+          font-weight: 500;
+          margin-right: 1rem;
+          color: $primary;
+        }
+        a.active,
+        a:focus {
+          color: $normal-blue;
+          border-bottom: 2px solid $normal-blue;
+        }
+      }
+    }
+    .tab-content {
+      p {
+        margin: 1rem 0;
+      }
+      h3 {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        color: $primary;
+         
+        i {
+          margin-right: 1rem;
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+
+  // Feature Icons Row 
+  .feature-icons {
+    padding: 3rem 0;
+
+    h1 {
+      font-size: 2rem;
+      text-align: center;
+      color: $darkder-blue;
+      margin-bottom: 2rem;  
+    }
+
+    .icon-box {
+      i {
+        color: $normal-blue;
+        font-size: 3rem;
+        margin-right: 1rem;
+      }
+      h4 {
+        color: $primary;
+      }
+      p {
+        color: #3338;
+        font-size: 1.1rem;
+      }
+    }
+  }
+} // Feature Section Ends
+
+
+// Services Section Starts 
+#services {
+  .service-box {
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    border-radius: 3px;
+
+    .icon  {
+      padding: 1rem;
+      border-radius: 3px;
+      display: inline-block;
+      margin-bottom: .8rem;
+    }
+
+    a[type="button"] {
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    &:hover {
+      color: #fff;
+
+      .icon {
+        background: #fff;
+      }
+      a[type="button"] {
+        color: #fff;
+      }
+    }
+  }
+
+  .blue {
+    border-bottom: 3px solid rgb(94, 150, 255);
+
+    .icon {
+      background-color: rgba(94, 150, 255, 0.2);;
+      color: rgb(94, 150, 255);
+    }
+    a[type="button"] {
+      color: rgb(94, 150, 255);
+    }
+
+    &:hover {
+      background: rgb(94, 150, 255);;
+    }
+  }
+  .orange {
+    border-bottom: 3px solid rgb(202, 137, 15);
+
+    .icon {
+      background-color: rgba(202, 137, 15, 0.2);;
+      color: rgb(202, 137, 15);
+    }
+    a[type="button"] {
+      color: rgb(202, 137, 15);
+    }
+
+    &:hover {
+      background: rgb(202, 137, 15);
+    }
+  }
+  .green {
+    border-bottom: 3px solid rgb(66, 216, 46);
+
+    .icon {
+      background-color: rgba(66, 216, 46, 0.2);;
+      color: rgb(66, 216, 46);
+    }
+    a[type="button"] {
+      color: rgb(66, 216, 46);
+    }
+
+    &:hover {
+      background: rgb(66, 216, 46);
+    }
+  }
+  .red {
+    border-bottom: 3px solid rgb(195, 49, 20);
+
+    .icon {
+      background-color: rgba(195, 49, 20, 0.2);;
+      color: rgb(195, 49, 20);
+    }
+    a[type="button"] {
+      color: rgb(195, 49, 20);
+    }
+
+    &:hover {
+      background: rgb(195, 49, 20);
+    }
+  }
+  .violet {
+    border-bottom: 3px solid rgb(181, 58, 230);
+
+    .icon {
+      background-color: rgba(181, 58, 230, 0.2);;
+      color: rgb(181, 58, 230);
+    }
+    a[type="button"] {
+      color: rgb(181, 58, 230);
+    }
+
+    &:hover {
+      background: rgb(181, 58, 230);
+    }
+  }
+  .pink {
+    border-bottom: 3px solid pink;
+
+    .icon {
+      background: rgba(255, 192, 203, 0.2);
+      color: pink;
+    }
+    a[type="button"] {
+      color: pink;
+    }
+
+    &:hover {
+      background: pink;
+    }
+  }
+
+  // Pricing Plans Row 
+  .pricing-plans {
+    padding: 3rem 0;
+
+    .pricing-plan-box {
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+      transition: all .2s ease;
+
+      h4 {
+        font-size: 1.4rem;
+        padding-top: 1rem;
+      }
+
+      p {
+        margin-top: 1rem;
+        color: #3336;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+        transition-duration: .1s;
+      }
+    }
+
+    .free {
+      h4 {
+        color: cyan;
+      }
+    }
+    .starter {
+      position: relative;
+      overflow: hidden;
+
+      h4 {
+        color:rgb(66, 216, 46);
+      }
+
+      &::after {
+        content: "Featured";
+        position: absolute;
+        top: 1rem;
+        right: -5rem;
+        padding: 0 5rem;
+        background: $normal-blue;
+        color: #fff;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        text-align: center;
+        transform: rotate(45deg);
+      }
+    }
+    .ultimate {
+      h4 {
+        color:rgb(240, 93, 64);
+      }
+    }
+    .business {
+      h4 {
+        color:rgb(240, 158, 64);
+      }
+    }
+  }
+
+  .faq {
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    .accordion {
+      button {
+        font-size: 1.3rem;
+        color: #2229;
+      }
+    }
+  }
+ 
+} // Services Sections Ends
+
+// Profolio Section Starts 
+#profolio {
+  #profolio-tabs {
+    ul {
+      border: none;
+
+      li {
+        a {
+          color: black;
+          padding: .4rem 1rem;
+          border-radius: 1rem;
+          margin: 1rem;
+          border: 1px solid transparent;
+
+          &:focus,
+          &:hover {
+            border-color: $secondary;
+            color: $normal-blue;
+          }
+
+        }
+        a.active {
+          border: 1px solid $normal-blue;
+          color: $normal-blue;
+        }
+        @media screen and (max-width: 567px) {
+          a {
+            margin: 1rem .5rem;
+          }
+        }
+      }
+    }
+  }
+  
+  .tab-content {
+    .profolio-card {
+      position: relative;
+
+      .pro {
+        overflow: hidden;
+      }
+
+      .profolio-card-info  {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column;
+        background: #fff8;
+        transform: scale(0);
+
+        p.h4 {
+          color: $darkder-blue;
+        }
+        p.h6 {
+          color: $primary;
+        }
+        i {
+          padding: .25rem .5rem;
+          font-size: 1.5rem;
+          display: inline-block;
+          font-weight: 700;
+          color: #fff;
+          border-radius: 50%;
+          background: $normal-blue;
+
+          &:hover {
+            opacity: .9;
+          }
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          width: 3rem;
+          height: 3rem;
+          border: 3px solid transparent;
+          opacity: .5;
+        }
+        &::after {
+          bottom: .5rem;
+          right: 1rem;
+          border-right-color: $primary;
+          border-bottom-color: $primary;
+        }
+        &::before {
+          top: .5rem;
+          left: 1rem;
+          border-top-color: $primary;
+          border-left-color: $primary;
+        }
+      }
+
+      &:hover {
+        img {
+          transform: scale(1.05);
+        }
+        .profolio-card-info {
+          transform: scale(1);
+        }
+      }
+    }
+  }
+} // Profolio Section Ends
+
+// Testimonial Section Starts 
+#testimonial {
+  .testimonial-items-container {
+    position: relative;
+    overflow: hidden;
+
+    .testimonial-inner {
+      width: 500%;
+      display: flex;
+      padding: 1.5rem 0;
+
+      .testimonial-item {
+        width: 100%;
+        padding: 1rem;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+        i {
+          color: gold;
+          margin: 1rem 3px;
+        }
+        img {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+          margin-top: 3rem;
+        }
+        p.lead {
+          font-style: italic;
+          margin-top: 1rem;
+          font-size: .9rem;
+        }
+        p:last-child() {
+          color: #3337;
+        }
+      }
+    }
+  }
+  .testimonial-mapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+
+    div {
+      margin: 0 .5rem;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      border: 1px solid $normal-blue;
+      cursor: pointer;
+    }
+  }
+} // Testimonial Section Ends
+
+// Team Section Starts 
+#team {
+
+  .row {
+    padding: 2rem 0;
+  }
+  .team-boxes-wrapper {
+    position: relative;
+
+    .card {
+      overflow: hidden;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      transition: .1s ease;
+      margin-bottom: 1.5rem;
+
+      .team-images-wrapper {
+        img[alt="team-shape"] {
+          margin-top: -4rem;
+        }
+        .social-medias {
+          position: absolute;
+          top: 1rem;
+          right: -10rem;
+          padding: .5rem;
+          background-color: rgba( $lighter-blue, 0.5);
+          border-radius: 3px;
+  
+          i {
+            display: block;
+            margin: .5rem 0;
+            font-size: 1.2rem;
+            color: #fff;
+            cursor: pointer;
+  
+            &:hover {
+              color: #3338;
+            }
+          }
+        }
+      }
+      &:hover {
+        transform: scale(1.05);
+
+        .social-medias {
+          right: .5rem;
+        }
+      }
+      
+      .card-text {
+        font-style: italic;
+        color: #1119;
+      }
+    }
+  }
+
+} // Team Section Starts 
+ 
+// Our Clients Section Starts 
+#clients {
+  img {
+    opacity: .5;
+    &:hover {
+      opacity: 1;
+    }
+  }
+} // Our Clients Section Ends
+
+// Blog Section Starts
+#blog {
+  .card {
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .h6 {
+      color: $lighter-blue;
+    }
+    .h2 {
+      color: $secondary;
+      font-size: 1.2rem;
+    }
+    a {
+      text-decoration: none;
+      color: $normal-blue;
+      font-weight: 500;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.2) rotate(5deg);
+      }
+      .h2 {
+        color: $normal-blue;
+      }
+
+    }
+    
+  }
+} // Blog Section Ends
+
+ // Contact Section Starts 
+#contact {
+  .contact-info {
+    i {
+      color: $normal-blue;
+      font-size: 3rem;
+    }
+    h3 {
+      font-size: 1.3rem;
+      color: $secondary;
+    }
+    p {
+      font-weight: 300;
+    }
+  }
+
+  form {
+    input,textarea {
+      margin-bottom: 1rem;
+      outline: 0;
+      box-shadow: none;
+
+      &:focus {
+        border: 1px solid $normal-blue;
+      }
+    }
+    input[type="email"] {
+      margin-left: 1rem;
+    }
+    button {
+      padding: .5rem 2rem;
+      outline: none;
+      border: none;
+      border-radius: .2rem;
+    }
+  }
+} // Contact Section Ends 
+
+
+// Footer Section Starts 
+#footer {
+  background-color: rgba(228, 248, 248, .4);
+
+  .container {
+    padding: 2rem 0;
+  }
+  .subscribe-box {
+    h2 {
+      color: $darkder-blue;
+    }
+    p {
+      font-weight: 350;
+    }
+  }
+
+  .title {
+    color: $primary;
+  }
+  .social-medias {
+    i {
+      font-size: 1.2rem;
+      color: rgba($secondary, 0.5);
+      margin-right: .8rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $secondary;
+      }
+    }
+  }
+
+  .info-collection {
+    background: url(../../assests/img/footer-bg.png) right no-repeat;
+    background-size: contain;
+  }
+
+  .footer-links  {
+    h4 {
+      color: $secondary;
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+    li {
+      a {
+        text-decoration: none;
+        line-height: 1.9;
+        font-weight: 300;
+        color: $secondary;
+
+        i {
+          color: lightgray;
+        }
+
+        &:hover {
+          color: $normal-blue;
+        }
+      }
+    }
+  }
+
+  .copyright {
+    color: $secondary;
+  }
+
+  @media screen and (min-width: 992px) {
+    .subscribe-box {
+      width: 60%;
+    }
+  }
+} // Footer Section Ends
